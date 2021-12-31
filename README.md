@@ -1,2 +1,2 @@
 # GUI Advanced Calculator
- Calculator that can do everything a modern calculator can do
+ Calculator that can do most things a modern calculator can do!
