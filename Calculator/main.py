@@ -8,8 +8,7 @@ root.title("Calculator")
 
 e = Entry(root, width=35, borderwidth=5)
 e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-x = 0
-list1 = []
+
 
 def button_click(number):
     current = e.get()
@@ -20,7 +19,7 @@ def button_click(number):
 def button_clear():
     e.delete(0, END)
     
-def button_add(m):
+def button_add():
     global math
     math = "addition"
     y = e.get()
@@ -96,7 +95,7 @@ button8 = Button(root, text=8, padx= 40, pady=40, command=lambda: button_click(8
 button9 = Button(root, text=9, padx= 40, pady=40, command=lambda: button_click(9))
 button0 = Button(root, text=0, padx= 40, pady=40, command=lambda: button_click(0))
 
-buttonadd = Button(root, text='+', padx=40, pady=40, command=lambda m = "Yo" : button_add(m))
+buttonadd = Button(root, text='+', padx=40, pady=40, command=lambda m = "Yo" : button_add())
 buttonequal = Button(root, text='=', padx=40, pady=40, command=lambda: button_equal())
 buttonclear = Button(root, text='clear', padx=40, pady=40, command=lambda: button_clear())
 buttonmult = Button(root, text='x', padx=40, pady=40, command=lambda : button_mult())
