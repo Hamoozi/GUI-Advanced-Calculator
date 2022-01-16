@@ -10,9 +10,12 @@ root.title("Calculator")
 
 e = Entry(root, width=35, borderwidth=5)
 e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+counter = -1
 
 
 def button_click(number):
+    global counter
+    counter += 1
     current = e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(number))
@@ -21,80 +24,51 @@ def button_click(number):
 def button_clear():
     e.delete(0, END)
     
-def button_add():
-    global math
-    math = "addition"
-    curr = e.get()
-    e.delete(0, END)
-    if stack.is_empty() == True:
-        stack.push(int(curr))
-    else:
-        stack.push(stack.pop() + int(curr))
-
+def button_add(m):
+    
+    global counter
+    counter +=1
+    e.insert(counter, m)
     
 def button_equal():
     
     u = e.get()
     e.delete(0, END)
-    x = 0
-    
-    while stack.is_empty() != True:
-        x += stack.pop()
-            
-    if math == "addition":
-        e.insert(0, x + int(u))
-    if math == "multi":
-        e.insert(0, x * int(u))
-    if math == "subtract":
-        e.insert(0, x - int(u))
-    if math == "divide":
-        e.insert(0, (x / int(u)))
+    final = eval(u)
+    e.insert(0, str(final))
     
     
-def button_mult():
-    global math
-    math = "multi"
+def button_mult(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
+        
+def button_subtract(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
+def button_divide(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
+def button_sq(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
     
-    curr = e.get()
-    e.delete(0, END)
-    if stack.is_empty() == True:
-        stack.push(int(curr))
-    else:
-        stack.push(stack.pop() * int(curr))
-
-def button_subtract():
-    global math
-    math = "subtract"
+def button_sqroot(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
     
-    curr = e.get()
-    e.delete(0, END)
-    if stack.is_empty() == True:
-        stack.push(int(curr))
-    else:
-        stack.push(stack.pop() - int(curr))
-def button_divide():
-    global math
-    math = "divide"
-    
-    curr = e.get()
-    e.delete(0, END)
-    if stack.is_empty() == True:
-        stack.push(int(curr))
-    else:
-        stack.push(stack.pop() / int(curr))
-def button_sq():
-    curr = e.get()
-    
-    e.delete(0, END)
-    
-    e.insert(0, str(int(curr)**2))
-    
-def button_sqroot():
-    curr = e.get()
-    
-    e.delete(0, END)
-    ter = math.sqrt(int(curr))
-    e.insert(0, str(ter))
+def button_firstp(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
+def button_secondp(m):
+    global counter
+    counter +=1
+    e.insert(counter, m)
     
     
 
@@ -112,14 +86,16 @@ button8 = Button(root, text=8, padx= 60, pady=40, command=lambda: button_click(8
 button9 = Button(root, text=9, padx= 60, pady=40, command=lambda: button_click(9))
 button0 = Button(root, text=0, padx= 60, pady=40, command=lambda: button_click(0))
 
-buttonadd = Button(root, text='+', padx=40, pady=40, command=lambda : button_add())
+buttonadd = Button(root, text='+', padx=40, pady=40, command=lambda : button_add('+'))
 buttonequal = Button(root, text='=', padx=60, pady=40, command=lambda: button_equal())
 buttonclear = Button(root, text='clear', padx=60, pady=40, command=lambda: button_clear())
-buttonmult = Button(root, text='x', padx=40, pady=40, command=lambda : button_mult())
-buttonsub = Button(root, text='-', padx=40, pady=40, command=lambda: button_subtract())
-buttondiv = Button(root, text='÷', padx=40, pady=40, command=lambda: button_divide())
-buttonsq = Button(root, text='Square', padx=40, pady=40, command=lambda: button_sq())
-buttonsqr = Button(root, text='Square root', padx=40, pady=40, command=lambda: button_sqroot())
+buttonmult = Button(root, text='x', padx=40, pady=40, command=lambda : button_mult('*'))
+buttonsub = Button(root, text='-', padx=40, pady=40, command=lambda: button_subtract('-'))
+buttondiv = Button(root, text='÷', padx=40, pady=40, command=lambda: button_divide('/'))
+buttonsq = Button(root, text='Square', padx=40, pady=40, command=lambda: button_sq('**2'))
+buttonsqr = Button(root, text='Square root', padx=40, pady=40, command=lambda: button_sqroot('**(1/2)'))
+buttonp1 = Button(root, text='(', padx=40, pady=40, command=lambda: button_firstp('('))
+buttonp2 = Button(root, text=')', padx=40, pady=40, command=lambda: button_firstp(')'))
 
 
 
@@ -145,6 +121,8 @@ buttonsub.grid(row=3, column=3)
 buttondiv.grid(row=4, column=3)
 buttonsq.grid(row=5, column=1)
 buttonsqr.grid(row=5, column=0)
+buttonp1.grid(row=5, column=2)
+buttonp2.grid(row=5, column=3)
 
 
 
