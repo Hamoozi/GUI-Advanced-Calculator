@@ -1,6 +1,6 @@
 from array_stack import ArrayStack
 from tkinter import *
-import math
+
 
 stack = ArrayStack()
 
@@ -92,8 +92,8 @@ buttonclear = Button(root, text='clear', padx=60, pady=40, command=lambda: butto
 buttonmult = Button(root, text='x', padx=40, pady=40, command=lambda : button_mult('*'))
 buttonsub = Button(root, text='-', padx=40, pady=40, command=lambda: button_subtract('-'))
 buttondiv = Button(root, text='÷', padx=40, pady=40, command=lambda: button_divide('/'))
-buttonsq = Button(root, text='Square', padx=40, pady=40, command=lambda: button_sq('**2'))
-buttonsqr = Button(root, text='Square root', padx=40, pady=40, command=lambda: button_sqroot('**(1/2)'))
+buttonsq = Button(root, text='²', padx=40, pady=40, command=lambda: button_sq('**2'))
+buttonsqr = Button(root, text='√', padx=40, pady=40, command=lambda: button_sqroot('**(1/2)'))
 buttonp1 = Button(root, text='(', padx=40, pady=40, command=lambda: button_firstp('('))
 buttonp2 = Button(root, text=')', padx=40, pady=40, command=lambda: button_firstp(')'))
 
