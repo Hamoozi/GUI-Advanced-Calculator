@@ -1,8 +1,5 @@
-from array_stack import ArrayStack
 from tkinter import *
 
-
-stack = ArrayStack()
 
 
 root = Tk()
