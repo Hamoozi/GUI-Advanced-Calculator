@@ -19,7 +19,6 @@ def button_click(number):
     current = e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(number))
-    return
 
 def button_clear():
     e.delete(0, END)
